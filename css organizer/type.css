@@ -1,0 +1,289 @@
+/* Type Hierarchy */
+h1, h2, h3, h4, h5, h6, button, .mm-text, .vc_gitem-link{
+	font-weight: 100 !important;
+}
+h1, h2, h3 {
+	font-family: 'opineheavy', sans-serif;
+}
+
+h4, h5, h6 {
+	font-family: 'avenir-next-heavy', sans-serif;
+}
+h3.page-title{
+	font-size: 4em !important;
+	text-transform: uppercase !important;
+	line-height: 1;
+	color: #29f4c1 !important;
+	text-shadow: #6000ff 4px 4px !important;
+}
+h1, .product_title.entry-title, .page-content .blog_item--info .entry-title {
+	font-size: 3.5em !important;
+	line-height: 1;
+}
+h2 {
+	font-size: 3em;
+}
+h3 {
+	font-size: 2em;
+}
+h4, .banner-title {
+	font-size: 1.5em;
+}
+h5 {
+	font-size: 1em;
+}
+h6 {
+	font-size: 0.8em;
+}
+div.entry-content a, div.entry-content a:hover {
+	text-decoration: underline;
+}
+/*** Responsive Styles Tablet And Below ***/
+@media all and (max-width: 980px) {
+ 
+}
+ 
+/*** Responsive Styles Tablet Only ***/
+@media all and (min-width: 768px) and (max-width: 980px) {
+ 
+}
+ 
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+ 
+}
+ 
+/*** Responsive Styles Smartphone Portrait ***/
+@media all and (max-width: 479px) {
+	h1, .product_title.entry-title, .page-content .blog_item--info .entry-title, h3.page-title {
+	font-size: 2em !important;
+	/*font-size: 11vw !important;*/	
+	line-height: 1;
+	}
+	h2 {
+		font-size: 1.75em;
+	/*	font-size: 10vw !important;	*/
+	}
+	h3, .la-advanced-product-filters .widget-title span {
+		font-size: 1.5em;
+	/*	font-size: 9vw !important;	*/
+	}
+	h4, .banner-title {
+		font-size: 1.25em;
+	/*	font-size: 8vw !important;	*/
+	}
+	h5 {
+		font-size: 1em;
+	/*	font-size: 6vw !important;*/
+	}
+	h6 {
+		font-size: 0.8em;
+	/*	font-size: 4vw !important;*/
+	}  
+}
+body, p {
+	font-family:'avenir-next-regular', sans-serif;
+	font-size: 1.35em;
+	line-height: 1.7;
+	}
+p b, p strong{
+	font-family:'avenir-next-bold', sans-serif;
+}
+button{
+	font-family: 'opineheavy', sans-serif;
+	text-transform: uppercase;
+}
+.mm-text{
+	font-family: 'opineheavy', sans-serif;
+	font-size: 1.25em;
+}
+#la_mobile_nav a{
+	font-family: 'opineheavy', sans-serif;
+}
+.vc_tta-tab{
+	font-family: 'avenir-next-heavy', sans-serif;
+}
+.home-post-title h4{
+	color: #6000ff !important;
+}
+.showposts-loop.blog-mini .entry-title{
+	font-size: 28px;
+}
+/*Related Post*/
+.la-related-posts .blog_item--title h3.entry-title{
+	font-size: 2em !important;
+	line-height: 1 !important;
+}
+/* Navigation: Make logo match hamburger icon & animate nav underline; */
+.main-menu li a{
+    display: inline-block;
+    text-decoration: none;
+		line-height: 50px;
+}
+
+.main-menu li a::after {
+    height: 5px;
+    background: #09cffc;
+    transition: width .3s;
+}
+.site-branding img{
+	max-width: 150px;
+}
+/* Type Colors */
+a{
+	color: #00f3bf;
+}
+a:hover{
+	color: #09cffc;
+}
+h1 {
+	color: #00f3bf;
+	text-shadow: #6000ff 4px 4px 0;
+}
+.single-post-content h2, #footer-form h2 {
+	text-shadow: #6000ff 4px 4px 0;
+}
+h3{
+	text-shadow: #6000ff 4px 4px 0;
+}
+h4{
+	color: #6000ff !important;
+}
+.product_item--title, .product_meta h3{
+	text-shadow: none !important;
+	text-transform: uppercase;
+}
+.vc_tta-tab{
+	color: #6000ff !important;
+}
+.single-post-detail p {
+	color: #333333 !important;
+}
+/*Button*/
+.vc_btn3 {
+	min-width: 150px !important;
+	border: 0px !important;
+}
+.vc_btn3:hover {
+	border: 0px !important;
+}
+.vc_btn3-container a {
+	padding: 5px 5px !important;
+}
+.vc_btn3-container:hover a{
+	background-color: #4700E6 !important;
+}
+/* Offset Text */
+/* .offset-green, .product_title.entry-title {
+	text-shadow: #6000ff 5px 5px 0;
+}
+.offset-purple{
+	text-shadow: #09cffc 5px 5px 0, #09cffc 5px 5px 0;
+}
+.offset-blue{
+	text-shadow: #00f3bf 5px 5px 0, #00f3bf 5px 5px 0;
+} */
+p.quick_specs{
+	margin: auto 0;
+	font-family: 'opineheavy', sans-serif !important;
+	text-transform: uppercase;
+	color: #6000ff;
+	font-size: 16px;
+}
+p.quick_specs b{
+	font-weight: 100 !important;
+}
+h3.entry-title a{
+	font-size: 0.75em !important;
+	text-transform: capitalize;
+	font-family: 'avenir-next-heavy', sans-serif;
+	text-shadow: none;
+}
+.blog_item h3{
+	line-height: 50% !important;
+}
+
+@media only screen and (max-width: 767px){
+	.page-content .blog_item--info h1.entry-title{
+		font-size: 3em !important;
+	}
+}
+@media only screen and (max-width: 479px){
+	.page-content .blog_item--info h1.entry-title{
+		font-size: 2.5em !important;
+	}
+}
+/* Mobility Revolution */
+.page-content .blog_item h1.entry-title{
+	padding: 25px 25px 25px 30px;
+	text-shadow: none !important;
+	text-transform: uppercase;
+	font-weight: 100;
+	line-height: 100%;
+}
+.single-post-content.type-post > .entry-meta {
+	text-align: left;
+	text-transform: uppercase;
+}
+.single-post-detail{
+	color: #29f4c1;
+}
+/*Byline*/
+.byline .author a, .blog_item--meta a{
+	color: #333 !important;
+}
+/*Blog Sign Up Form*/
+#footer-form h2, #footer-form p{
+	color: #6000ff;
+}
+/*Wishlist Page*/
+.wishlist_table thead tr th {
+	color: #000;
+	font-family: "avenir-next-heavy";
+	font-weight: 100;
+}
+td.product-name a {
+	font-family: 'avenir-next-bold', sans-serif;
+	color: #333 !important;
+}
+td.product-name a:hover{
+	color: #6000ff !important;
+}
+#sidebar_primary article {
+	margin-bottom: 10px !important;
+}
+#sidebar_primary .showposts-loop.blog-mini .entry-title{
+	line-height: 1 !important;
+}
+#sidebar_primary .widget-title {
+	font-size: 2em;
+	text-shadow: 0px 0px;
+}
+/*Product Filter*/
+.la-advanced-product-filters .widget-title span{
+	color: #29f4c1 !important;
+	font-size: 1.5em !important;
+	text-shadow: 3px 3px #6000ff;
+}
+/*Shop*/
+.button {
+	font-family: 'opineheavy', sans-serif;
+	letter-spacing: 1px;
+}
+#extraf_widget-2 .widget-title span{
+	text-shadow: none;
+}
+/*** Responsive Styles Tablet Only ***/
+@media all and (min-width: 768px) and (max-width: 980px) {
+ 	#extraf_widget-2 .widget-title{
+ 		font-size: 13px;
+ 	}
+ 	#extraf_widget-2 .controls .btn{
+ 		padding: 12px 10px;
+ 	}
+}
+/* Tags Filter */
+.comfort-a.selected , .greatfor-a.selected , .tech-a.selected , .capabilities-a.selected {
+	font-family: 'avenir-next-heavy';
+	color: #6000ff;
+}

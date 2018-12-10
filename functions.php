@@ -343,7 +343,7 @@ echo $args['before_title'] . $GreatFor. $args['after_title'];
 <!--Search Button-->
 <div class="controls">
 <button type="button" class="btn btn-primary" id="submit_filters">Search</button>
-<button type="button" class="btn" id="clear_filters">Reset Filter</button>
+<button type="button" class="btn" id="clear_filters">Reset Filters</button>
 </div>
 
 <?php
