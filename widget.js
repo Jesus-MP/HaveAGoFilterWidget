@@ -545,15 +545,18 @@ widget.clear_all_terms();
 
           if (submit_filters)
           {
-          	$('#submit_filters').off('click').on("click",function()
-		 {
+            $('#submit_filters').off('click').on("click",function(e)
+     {
 
 
          
-	
+  
 
-	
-		 	ajax_call(widget);
+     if ($(window).width() < 767){
+      e.preventDefault();
+      $('.btn-advanced-shop-filter').trigger('click');
+    }
+      ajax_call(widget);
 		 
 
 
