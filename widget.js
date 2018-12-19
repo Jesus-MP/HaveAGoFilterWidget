@@ -1173,6 +1173,6 @@ if(min_slider_motorpower)
 		
 		}
 
-
+/*New Commit*/
 
 	

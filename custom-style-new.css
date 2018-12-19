@@ -1121,6 +1121,8 @@ table.dataTable{
 .wc-toolbar-left, .wc-view-toggle{
 	display: none;
 }
+
+/* Filter Sldier */
 input[type='range'] {
   width: 100%;
   overflow: hidden;
@@ -1161,7 +1163,7 @@ input[type='range']::-webkit-slider-thumb:active, input[type='range']::-webkit-s
 input[type='range']:nth-child(1)::-webkit-slider-thumb {
   z-index: 2;
 }
-
+typ
 .rangeslider{
     position: relative;
     height: 15px;
