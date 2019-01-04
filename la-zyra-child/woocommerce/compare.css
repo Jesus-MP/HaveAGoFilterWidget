@@ -1,0 +1,386 @@
+/**
+ * The style of the woocommerce compare products
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'opineheavy';
+    font-style: normal;
+    src: url('/wp-content/uploads/useanyfont/180515045420OpineHeavy.eot');
+    src: local('opineheavy'),url('/wp-content/uploads/useanyfont/180515045420OpineHeavy.eot') format('embedded-opentype'),url('/wp-content/uploads/useanyfont/180515045420OpineHeavy.woff') format('woff')
+}
+@font-face {
+    font-family: 'avenir-next-regular';
+    font-style: normal;
+    src: url('/wp-content/uploads/useanyfont/180515052602Avenir-Next-Regular.eot');
+    src: local('avenir-next-regular'),url('/wp-content/uploads/useanyfont/180515052602Avenir-Next-Regular.eot') format('embedded-opentype'),url('/wp-content/uploads/useanyfont/180515052602Avenir-Next-Regular.woff') format('woff')
+}
+@font-face {
+    font-family: 'avenir-next-heavy';
+    font-style: normal;
+    src: url('/wp-content/uploads/useanyfont/180515054114Avenir-Next-Heavy.eot');
+    src: local('avenir-next-heavy'),url('/wp-content/uploads/useanyfont/180515054114Avenir-Next-Heavy.eot') format('embedded-opentype'),url('/wp-content/uploads/useanyfont/180515054114Avenir-Next-Heavy.woff') format('woff')
+}
+@font-face {
+    font-family: 'avenir-next-bold';
+    font-style: normal;
+    src: url('/wp-content/uploads/useanyfont/181029010858avenir-next-bold.eot');
+    src: local('avenir-next-bold'),url('/wp-content/uploads/useanyfont/181029010858avenir-next-bold.eot') format('embedded-opentype'),url('/wp-content/uploads/useanyfont/181029010858avenir-next-bold.woff') format('woff')
+}
+
+body {
+    font-family: 'avenir-next-regular', san-serif !important;
+    font-size: 13px;
+    line-height: 1.51em;
+    color: #747373;
+    background: none !important;
+    padding: 35px;
+}
+
+table.compare-list {
+    margin: 10px;
+    table-layout: fixed;
+}
+
+table.compare-list tr.title td{
+    font-family: "opineheavy", sans-serif;
+    color: #6000ff !important;
+    font-size: 2em !important;
+}
+/* plugin fixedheadertable fix */
+table.compare-list thead, table.compare-list tfoot {
+    display: none;
+}
+
+.table-wrapper {
+    width: 100%;
+}
+
+table.compare-list thead th, h1 {
+    color: #00f3bf !important;
+    font-family: 'opineheavy', sans-serif !important;
+    font-weight: 100 !important;
+    text-shadow: 4px 4px #6000ff;
+    padding: 15px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.076em;
+}
+
+table.compare-list thead th a.close, h1 a.close {
+    float: right;
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #fff;
+    text-decoration: none;
+}
+
+table.compare-list th, table.compare-list td,
+table.compare-list th, table.compare-list .price.repeated td {
+    padding: 10px 0px;
+}
+
+table.compare-list tr > th, table.compare-list td {
+    border-bottom: 1px solid #eee;
+}
+
+/** Alternating Spec Row **/
+table.compare-list > tbody > tr > th > table > tbody > tr > td{
+    font-family: 'avenir-next-bold';
+    text-transform: capitalize !important; 
+}
+table.compare-list > tbody > tr > th > table > tbody > tr > td, table.compare-list > tbody > tr > td > div > table > tbody > tr > td {
+    padding-left: 1em !important;
+}
+table.compare-list > tbody > tr > th > table > tbody > tr:nth-child(even), table.compare-list > tbody > tr > td > div > table > tbody > tr:nth-child(odd):not(:first-child) {
+    background-color: #eee;
+}
+table.compare-list > tbody > tr > th > table > tbody > tr:nth-child(odd), table.compare-list > tbody > tr > td > div > table > tbody > tr:nth-child(even) {
+    background-color: #fff;
+}
+
+table.compare-list tr.remove th, table.compare-list tr.remove td,
+table.compare-list tr.image th,  table.compare-list tr.image td,
+table.compare-list tr.title th,  table.compare-list tr.title td,
+table.compare-list tr.price th,  table.compare-list tr.price td {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+table.compare-list tr.image th,  table.compare-list tr.image td {
+    height: 186px;
+}
+
+table.compare-list tr.image th, table.compare-list tr.image td,
+table.compare-list tr.title th, table.compare-list tr.title td,
+table.compare-list tr.price th, table.compare-list tr.price td {
+    color: #333;
+    text-transform: uppercase;
+    font-size: 1.076em;
+}
+
+table.compare-list tr.image th, table.compare-list tr.image td,
+table.compare-list tr.price th, table.compare-list tr.price td,
+table.compare-list tr.add-to-cart th, table.compare-list tr.add-to-cart td {
+    padding-top: 1em;
+}
+
+table.compare-list tr.image th,
+table.compare-list tr.title th,
+table.compare-list tr.price th,
+table.compare-list tr.add-to-cart th {
+    text-indent: 150%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+table.compare-list .remove td a {
+    color: #747373;
+    text-decoration: none;
+}
+
+table.compare-list .remove td a:hover {
+    color: #333333;
+}
+
+table.compare-list .remove td a .remove {
+    border-radius: 100% 100% 100% 100%;
+    color: red;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 600;
+    height: 1em;
+    line-height: 0.81em;
+    text-align: left;
+    text-decoration: none;
+    width: 1em;
+}
+
+.yith-woocompare-widget ul.products-list a.remove {
+    float: left;
+}
+
+table.compare-list .remove td a:hover .remove {
+    background-color: red;
+    color: #ffffff;
+}
+
+table.compare-list .add-to-cart td a {
+    display: inline-block;
+    margin: 10px 0;
+    background-color: #4F4F4F;
+    border: 0 none;
+    color: #FFFFFF;
+    font-weight: normal;
+    line-height: normal;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+table.compare-list .add-to-cart td a:hover {
+    background: #868686;
+    color: #fff;
+}
+
+table.compare-list .stock td span {
+    color: #009900;
+}
+
+table.compare-list .stock td span.out-of-stock {
+    color: #990000;
+}
+
+table.compare-list .price td {
+    text-decoration: underline;
+}
+
+table.compare-list th .fixed-th {
+    width: 250px;
+}
+
+table.compare-list > th {
+    width: 250px;
+    max-width: 300px;
+    min-width: 250px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.076em;
+    color: #333333;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+table.compare-list td {
+    width: 250px;
+    max-width: 250px;
+    min-width: 250px;
+    text-align: left;
+}
+
+table.compare-list td.odd {
+    /*background: #F7F7F7;*/
+}
+
+table.compare-list td.even {
+    background: #fff;
+}
+
+table.compare-list td img {
+    border: 1px solid #00f3bf;
+    box-shadow: 10px 10px #00f3bf;
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: auto;
+    max-width: 80%;
+    padding: 3px;
+    margin-bottom: 20px;
+    /*width: 150px;*/
+}
+/** Button **/
+.btn-info
+{
+    background-color: #eee !important;
+    font-family: 'opineheavy', sans-serif;
+    text-transform: uppercase;
+    font-weight: 100 !important;
+    color: #00f3bf !important;
+    width: 120px !important;
+    border-radius: 0 !important;
+    padding: 2.5% 1.5% 1.5% !important;
+    border: none !important;
+}
+.btn-info:focus{
+    border: none !important;
+    outline: none !important;
+}
+table.compare-list tr > th {
+    padding-bottom: 0px;
+}
+table.compare-list tr.image th, table.compare-list tr.title th, table.compare-list tr.price th, table.compare-list tr.add-to-cart th {
+    text-indent: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+        
+p
+{
+    font-size: 12px;
+}
+
+tr
+{
+    vertical-align: top;
+}
+
+
+td, .btn.btn-info
+{
+    height: 50px;
+    line-height: 1.25;
+    padding: 10px;
+    margin-bottom: 17px;
+}
+/** Fixed Header Table Style */
+/*!
+* jquery.fixedHeaderTable. The jQuery fixedHeaderTable plugin
+*
+* Copyright (c) 2011 Mark Malek
+* http://fixedheadertable.com
+*
+* Licensed under MIT
+* http://www.opensource.org/licenses/mit-license.php
+*
+* http://docs.jquery.com/Plugins/Authoring
+* jQuery authoring guidelines
+*
+* Launch  : October 2009
+* Version : 1.3
+* Released: May 9th, 2011
+*
+*
+* all CSS sizing (width,height) is done in pixels (px)
+*/
+
+/* @group Reset */
+
+.fht-table,
+.fht-table thead,
+.fht-table tfoot,
+.fht-table tbody,
+.fht-table tr,
+.fht-table th,
+.fht-table td {
+    /* position */
+    margin: 0;
+
+    /* size */
+    padding: 0;
+
+    /* text */
+    font-size: 100%;
+    font: inherit;
+    vertical-align: top;
+}
+
+.fht-table {
+    /* appearance */
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* @end */
+
+/* @group Content */
+
+.fht-table-wrapper,
+.fht-table-wrapper .fht-thead,
+.fht-table-wrapper .fht-tfoot,
+.fht-table-wrapper .fht-fixed-column .fht-tbody,
+.fht-table-wrapper .fht-fixed-body .fht-tbody,
+.fht-table-wrapper .fht-tbody {
+    /* appearance */
+    overflow: hidden;
+
+    /* position */
+    position: relative;
+}
+
+.fht-table-wrapper .fht-fixed-body .fht-tbody,
+.fht-table-wrapper .fht-tbody {
+    /* appearance */
+    overflow: auto;
+}
+
+.fht-table-wrapper .fht-table .fht-cell {
+    /* appearance */
+    overflow: hidden;
+
+    /* size */
+    height: 1px;
+}
+
+.fht-table-wrapper .fht-fixed-column,
+.fht-table-wrapper .fht-fixed-body {
+    /* position */
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.fht-table-wrapper .fht-fixed-column {
+    /* position */
+    z-index: 1;
+}
+
+/* @end */
+
+.DTFC_LeftBodyWrapper,
+.DTFC_LeftHeadWrapper {
+    min-height: 20px;
+}
