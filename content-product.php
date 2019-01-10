@@ -129,7 +129,69 @@ $max_variable=_REQUEST['max_value'];
 
 				}
 				
-				echo '<p class="quick_specs"><b>'.$product_distance.'</b> &nbsp; &bull; &nbsp; <b>'.$product_speed.'</b> &nbsp; &bull; &nbsp; <b>'.$product_weight.'</b></p>';  
+				echo '<div class="all_specs">';
+				echo '<p class="quick_specs"><b>'.$product_distance.'</b> &nbsp; &bull; &nbsp; <b>'.$product_speed.'</b> &nbsp; &bull; &nbsp; <b>'.$product_weight.'</b></p>';
+				//Product Spec List
+				echo '<p class="list_specs">';
+				    // vars
+				    //$categories = array("performance", "comfort", "capabilities", "body", "quality", "capacity", "safety", "tech", "battery", "manufacturer");
+				    //$categories = array("performance");
+				    //foreach ($categories as $category ):
+				    $field = get_field('performance');
+				    $field_motor = $field[1];
+				    $field_battery = $field[4];
+				    
+				    // Debugger
+				    // echo '<pre>';
+				    // print_r($field);
+				    // print_r($field_motor);
+				    // print_r($field_battery);
+				    // echo '</pre>';
+
+				    // if (have_rows($category)):
+
+				    //     while (have_rows($category)):
+				    //     	the_row();
+				         	
+				         	// vars
+				    //         $name = $category.'_field_name';
+				    //         $input = $category.'_field_input';
+				    //         $name  = get_sub_field($name);
+				    //         $input = get_sub_field($input);
+				            
+				    $name_motor = $field_motor['performance_field_name'];
+				    $input_motor = $field_motor['performance_field_input'];
+				    $name_battery = $field_battery['performance_field_name'];
+				    $input_battery = $field_battery['performance_field_input'];
+
+				            //check if there is input
+				            // if ($input):
+				            //     echo "<b>" . $name . "</b>:&nbsp;" . $input . "<br/>";
+				            // endif;
+				    if ($input_motor):
+				    	echo "<b>" . $name_motor . "</b>:&nbsp;" . $input_motor . "<br/>";
+				    else:
+				    	echo "<b>" . $name_motor . "</b>:&nbsp;N/A<br/>";
+					endif;
+
+				    if ($input_battery):
+				    	echo "<b>" . $name_battery . "</b>:&nbsp;" . $input_battery . "<br/>";
+				    else:
+				    	echo "<b>" . $name_battery . "</b>:&nbsp;N/A<br/>";
+				    endif;
+
+				    //endwhile;
+				    //endif;
+				    //endforeach;
+
+				    //Tags List
+				    $product_tags = get_terms('product_tag');
+				    foreach($product_tags as $tag) {
+				    	echo '<pre>'.$tag->name.'</pre>';
+				    }
+				    
+
+				echo '</p></div>';  
 
 				//$p_name = strip_tags($product->name, '');
 				echo '<div class="product-external-url vc_btn3-container vc_btn3-left"><a vc_gitem-link vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat" href="'.esc_url( $product->get_product_url() ).'" target="_blank">EXPLORE ME</a></div>';

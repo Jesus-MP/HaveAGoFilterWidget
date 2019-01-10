@@ -617,11 +617,15 @@ p.quick_specs{
 	margin: auto 0;
 	text-transform: uppercase;
 	color: #6000ff;
-	font-size: 16px;
+	font-size: 1em;
 }
 p.quick_specs b{
 	font-weight: 100 !important;
 	font-family: 'avenir-next-heavy', sans-serif !important;
+}
+p.list_specs{
+	color: #6000ff;
+	font-size: 0.8em;
 }
 /*Edit Wishlist and Compare Button*/
 a.add_wishlist.button::before, a.add_compare.button::before, a.la-quickview-button::before {
@@ -701,7 +705,7 @@ div.summary.entry-summary{
 	.add_compare.button{
 	grid-row: 2;
 }
-	p.quick_specs{
+	div.all_specs{
 	grid-column: 1/ span 4;	
 	grid-row: 3;
 	}	
@@ -1096,7 +1100,7 @@ box-shadow: 0 0 36px 0 rgba(0, 0, 0, 0.15);
 	font-size: 1.5em;
 	line-height: 1;
 }
-#la_shop_products p.quick_specs{
+#la_shop_products .all_specs{
 	grid-area: spec;
 }
 .product_item .product_item--thumbnail {
