@@ -185,11 +185,59 @@ $max_variable=_REQUEST['max_value'];
 				    //endforeach;
 
 				    //Tags List
+				    $Capabilities = array("Portable", "Rollable", "Cargo", "Hill Capable", "Off-Road", "Weather", "Unique");
+				    $CapabilitiesSpecs = array();
+
+				    $Comfort = array("Seat", "Suspension", "Powerful Brakes", "Lights", "Horn/Bell", "step-thru");
+				    $ComfortSpecs = array();
+
+				    $Tech = array("Swappable Battery", "USB Charger", "Smartphone App");
+				    $TechSpecs = array();
+
+				    $GreatFor = array("Fun", "Exercise", "Commuting", "Metro", "Groceries");
+				    $GreatForSpecs = array();
+
 				    $product_tags = get_terms('product_tag');
+
+				    echo '<b>Capabilities:</b> ';
 				    foreach($product_tags as $tag) {
-				    	echo '<pre>'.$tag->name.'</pre>';
+				    	$e = $tag->name;
+				    	if(in_array($e, $Capabilities)){
+				    		array_push($CapabilitiesSpecs, $e);
+				    	}
 				    }
-				    
+				    $CapabilitiesSpecs = implode(", ",$CapabilitiesSpecs);
+				    echo $CapabilitiesSpecs.'</br>';
+
+				    echo '<b>Comfort:</b> ';
+				    foreach($product_tags as $tag) {
+				    	$e = $tag->name;
+				    	if(in_array($e, $Comfort)){
+				    		array_push($ComfortSpecs, $e);
+				    	}
+				    }
+				    $ComfortSpecs = implode(", ",$ComfortSpecs);
+				    echo $ComfortSpecs.'</br>';
+
+				    echo '<b>Tech:</b> ';
+				    foreach($product_tags as $tag) {
+				    	$e = $tag->name;
+				    	if(in_array($e, $Tech)){
+				    		array_push($TechSpecs, $e);
+				    	}
+				    }
+				    $TechSpecs = implode(", ",$TechSpecs);
+				    echo $TechSpecs.'</br>';
+
+				    echo '<b>Great For:</b> ';
+				    foreach($product_tags as $tag) {
+				    	$e = $tag->name;
+				    	if(in_array($e, $GreatFor)){
+				    		array_push($GreatForSpecs, $e);
+				    	}
+				    }
+				    $GreatForSpecs = implode(", ",$GreatForSpecs);
+				    echo $GreatForSpecs.'</br>';
 
 				echo '</p></div>';  
 
