@@ -15,7 +15,7 @@ function my_theme_enqueue_styles()
         $parent_style
     ), wp_get_theme()->get('Version'));
 
- // wp_enqueue_style( 'jquery-style', 'http://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.css' );
+ wp_enqueue_style( 'slider-style', 'https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css');
 
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
@@ -35,6 +35,9 @@ function my_enqueue() {
 // wp_enqueue_script( 'jquery-v-2', 'http://code.jquery.com/jquery-2.1.3.min.js', false );
 
 // // wp_enqueue_script( 'jquery-mobile', 'http://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"', false );
+
+	wp_enqueue_script( 'jNoui','https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js', null, null, true );
+
 
 
      wp_localize_script( 'widget_script', 'my_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
@@ -144,14 +147,15 @@ echo $args['before_title'] . $title . $args['after_title'];
 
 ?>
 <div class="rangeslider">
+	<div id="priceSlider" class="noUiSlider""></div>
                                 <p>
 								<span class="range_min light "></span>
                                 <span class="range_min light " id="span_min"><?php echo '$'.$min_range ?></span>
 								<span class="range_min light rightp">-</span>
                                 <span class="range_max light right" id="span_max"><?php echo '$'.$max_range ?></span>
                                 </p>
-                                <input class="min" name="range_1" type="range" min="<?php echo $min_range ?>" max="<?php echo $max_range ?>" value="<?php echo $min_range ?>" id="min_slider"/>
-                                <input class="max" name="range_2" type="range" min="<?php echo $min_range ?>" max="<?php echo $max_range ?>" value="<?php echo $max_range ?>" id="max_slider"/>
+                                <!-- <input class="min" name="range_1" type="range" min="<?php echo $min_range ?>" max="<?php echo $max_range ?>" value="<?php echo $min_range ?>" id="min_slider"/>
+                                <input class="max" name="range_2" type="range" min="<?php echo $min_range ?>" max="<?php echo $max_range ?>" value="<?php echo $max_range ?>" id="max_slider"/> -->
                             </div></br></br></div>
                       
 
@@ -168,14 +172,15 @@ if ( ! empty( $title2 ) )
 echo $args['before_title'] . $title2 . $args['after_title'];
 ?>
 <div class="rangeslider">
+	<div id="weightSlider" class="noUiSlider""></div>
                                 <p>
 								<span class="range_min light "></span>
                                 <span class="range_min light left" id="span_min_weight"><?php echo $min_range2.'&nbsp;lbs' ?></span>
 								<span class="range_min light rightp ">-</span>
                                 <span class="range_max light right" id="span_max_weight"><?php echo $max_range2.'&nbsp;lbs' ?></span>
                                 </p>
-                                <input class="min" name="range_1" type="range" min="<? echo $min_range2 ?>" max="<? echo max_range2 ?>" value="<?php echo $min_range2 ?>" id="min_slider_weight"/>
-                                <input class="max" name="range_1" type="range" min="<? echo $min_range2 ?>" max="<? echo max_range2 ?>" value="<?php echo $max_range2 ?>" id="max_slider_weight"/>
+                                <!-- <input class="min" name="range_1" type="range" min="<? echo $min_range2 ?>" max="<? echo $max_range2 ?>" value="<?php echo $min_range2 ?>" id="min_slider_weight"/>
+                                <input class="max" name="range_1" type="range" min="<? echo $min_range2 ?>" max="<? echo $max_range2 ?>" value="<?php echo $max_range2 ?>" id="max_slider_weight"/> -->
                             </div></br></br></div>
 <?php	
 //if title is present
@@ -191,14 +196,15 @@ echo $args['before_title'] . $title4 . $args['after_title'];
 
 ?>
 <div class="rangeslider">
+	<div id="rangeSlider" class="noUiSlider""></div> 
                                 <p>
 								<span class="range_min light "></span>
                                 <span class="range_min light left" id="span_min_range"><?php echo $min_range4.'&nbsp;miles' ?></span>
 								<span class="range_min light rightt ">-</span>
                                 <span class="range_max light right" id="span_max_range"><?php echo $max_range4.'&nbsp;miles' ?></span>
                                 </p>
-                                <input class="min" name="range_1" type="range" min="<?php echo $min_range4 ?>" max="<?php echo $max_range4 ?>" value="<?php echo $min_range4 ?>"id="min_slider_range" />
-                                <input class="max" name="range_1" type="range" min="<?php echo $min_range4 ?>" max="<?php echo $max_range4 ?>" value="<?php echo $max_range4 ?>"id="max_slider_range" />
+                                <!-- <input class="min" name="range_1" type="range" min="<?php echo $min_range4 ?>" max="<?php echo $max_range4 ?>" value="<?php echo $min_range4 ?>"id="min_slider_range" />
+                                <input class="max" name="range_1" type="range" min="<?php echo $min_range4 ?>" max="<?php echo $max_range4 ?>" value="<?php echo $max_range4 ?>"id="max_slider_range" /> -->
                             </div></br></br></div>
 
 <?php
@@ -214,14 +220,15 @@ echo $args['before_title'] . $title3 . $args['after_title'];
 
 ?>
 <div class="rangeslider">
+	<div id="speedSlider" class="noUiSlider""></div>
                                 <p>
 								<span class="range_min light "></span>
                                 <span class="range_min light left" id="span_min_topspeed"><?php echo $min_range3.'&nbsp;mph' ?></span>
 								<span class="range_min light rightt ">-</span>
                                 <span class="range_max light right" id="span_max_topspeed"><?php echo $max_range3.'&nbsp;mph' ?></span>
                                 </p>
-                                <input class="min" name="range_1" type="range" min="<? echo $min_range3 ?>" max="<? echo $max_range3 ?>" value="<?php echo $min_range3 ?>"id="min_slider_topspeed" />
-                                <input class="max" name="range_1" type="range" min="<? echo $min_range3 ?>" max="<? echo $max_range3 ?>" value="<?php echo $max_range3 ?>"id="max_slider_topspeed" />
+                                <!-- <input class="min" name="range_1" type="range" min="<? echo $min_range3 ?>" max="<? echo $max_range3 ?>" value="<?php echo $min_range3 ?>"id="min_slider_topspeed" />
+                                <input class="max" name="range_1" type="range" min="<? echo $min_range3 ?>" max="<? echo $max_range3 ?>" value="<?php echo $max_range3 ?>"id="max_slider_topspeed" /> -->
                             </div></br></br></div>
 
 
@@ -240,14 +247,15 @@ echo $args['before_title'] . $title6 . $args['after_title'];
 //output
 ?>
 <div class="rangeslider">
+	<div id="batterySlider" class="noUiSlider""></div>
                                 <p>
 								<span class="range_min light "></span>
                                 <span class="range_min light left" id="span_min_batterysize"><?php echo $min_range6.'&nbsp;Wh' ?></span>
 								<span class="range_min light rightt ">-</span>
                                 <span class="range_max light right" id="span_max_batterysize"><?php echo $max_range6.'&nbsp;Wh' ?></span>
                                 </p>
-                                <input class="min" name="range_1" type="range" min="<?php echo $min_range6 ?>" max="<?php echo $max_range6 ?>" value="<?php echo $min_range6 ?>"id="min_slider_batterysize" />
-                                <input class="max" name="range_1" type="range" min="<?php echo $min_range6 ?>" max="<?php echo $max_range6 ?>" value="<?php  echo $max_range6 ?>"id="max_slider_batterysize" />
+                                <!-- <input class="min" name="range_1" type="range" min="<?php echo $min_range6 ?>" max="<?php echo $max_range6 ?>" value="<?php echo $min_range6 ?>"id="min_slider_batterysize" />
+                                <input class="max" name="range_1" type="range" min="<?php echo $min_range6 ?>" max="<?php echo $max_range6 ?>" value="<?php  echo $max_range6 ?>"id="max_slider_batterysize" /> -->
                             </div></br></br></div>
 
 <?php
@@ -262,14 +270,16 @@ echo $args['before_title'] . $title5 . $args['after_title'];
 //output
 ?>
 <div class="rangeslider">
+	<div id="motorSlider" class="noUi-origin"></div>
+<br>
                                 <p>
 								<span class="range_min light "></span>
                                 <span class="range_min light left" id="span_min_motorpower"><?php echo $min_range5.'&nbsp;W' ?></span>
 								<span class="range_min light rightt ">-</span>
                                 <span class="range_max light right" id="span_max_motorpower"><?php echo $max_range5.'&nbsp;W' ?></span>
                                 </p>
-                                <input class="min" name="range_1" type="range" min="<?php echo $min_range5 ?>" max="<?php echo $max_range5 ?>" value="<?php echo $min_range5 ?>"id="min_slider_motorpower" />
-                                <input class="max" name="range_1" type="range" min="<?php echo $min_range5 ?>" max="<?php echo $max_range5 ?>" value="<?php echo $max_range5 ?>"id="max_slider_motorpower" />
+                               <!--  <input class="min" name="range_1" type="range" min="<?php echo $min_range5 ?>" max="<?php echo $max_range5 ?>" value="<?php echo $min_range5 ?>"id="min_slider_motorpower" />
+                                <input class="max" name="range_1" type="range" min="<?php echo $min_range5 ?>" max="<?php echo $max_range5 ?>" value="<?php echo $max_range5 ?>"id="max_slider_motorpower" /> -->
                             </div></br></br></div>
 
 

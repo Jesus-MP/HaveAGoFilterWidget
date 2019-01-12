@@ -1122,7 +1122,7 @@ table.dataTable{
 }
 /*Product Filter*/
 #extraf_widget-2 .widget-title{
-	margin-bottom: 0.5em;
+	margin-bottom: 1.25em;
 }
 
 .wc-toolbar-left, .wc-view-toggle{
@@ -1247,7 +1247,42 @@ input[type='range']::-webkit-slider-thumb:active, input[type='range']::-webkit-s
 input[type='range']:nth-child(1)::-webkit-slider-thumb {
   z-index: 2;
 }
-
+/*New Filter Sliders from NoUI*/
+html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
+	right: -0.5em !important;
+}
+.noUi-connect {
+    background: #29f4c1 !important;
+}
+.noUi-horizontal{
+	height: 0.35em !important;
+}
+.noUi-horizontal .noUi-handle {
+  width: 1em !important;
+  height: 1em !important;
+  border: 3px solid #29f4c1 !important;
+  border-radius: 100% !important;
+  background:#29f4c1 !important;
+  cursor: default;
+  box-shadow: inset 0 0 1px #FFF;
+	top:-4px !important;
+}
+.noUi-handle::after, .noUi-handle::before{
+	width: 0px !important;
+}
+.noUiSlider{
+	margin-bottom: 1em !important;
+}
+.noUi-target {
+	border-width: 0px !important;
+  background: #6000ff !important;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px #2D00CC, 0 3px 6px -5px #000099 !important;
+}
+.reset .noUi-connect {
+  background: #6000ff !important;
+}
+/*Filter Board Layout*/
 #extraf_widget-2{
 	width: 100%;
 	display: grid;

@@ -242,7 +242,7 @@ $max_variable=_REQUEST['max_value'];
 				echo '</p></div>';  
 
 				//$p_name = strip_tags($product->name, '');
-				echo '<div class="product-external-url vc_btn3-container vc_btn3-left"><a vc_gitem-link vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat" href="'.esc_url( $product->get_product_url() ).'" target="_blank">EXPLORE ME</a></div>';
+				echo '<div class="product-external-url vc_btn3-container vc_btn3-left"><a vc_gitem-link vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat" onClick="ga(send, event, Affiliates, Click,'.$product->name.');" href="'.esc_url( $product->get_product_url() ).'" target="_blank">EXPLORE ME</a></div>';
 				// get product_tags of the current product
 // $current_tags = get_the_terms( get_the_ID(), 'product_tag' );
 

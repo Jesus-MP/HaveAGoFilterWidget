@@ -2,6 +2,288 @@
 jQuery(function($) {
 
 
+$(document).bind('ready ajaxComplete',function() {
+          var slider = document.getElementById('priceSlider');
+          var weight= document.getElementById('weightSlider');
+          var range= document.getElementById('rangeSlider');
+          var speed= document.getElementById('speedSlider');
+          var battery=document.getElementById('batterySlider');
+          var motor=document.getElementById('motorSlider');
+  noUiSlider.create(slider, {
+   start: [100, 3500],
+   connect: true,
+   step: 1,
+   range: {
+     'min': 100,
+     'max': 3500
+   }});
+
+  noUiSlider.create(weight, {
+   start: [5, 100],
+   connect: true,
+   step: 1,
+   range: {
+     'min': 5,
+     'max': 100
+   }});
+
+  noUiSlider.create(range, {
+   start: [5, 100],
+   connect: true,
+   step: 1,
+   range: {
+     'min': 5,
+     'max': 100
+   }});
+
+  noUiSlider.create(speed, {
+   start: [0, 50],
+   connect: true,
+   step: 1,
+   range: {
+     'min': 0,
+     'max': 50
+   }});
+
+  noUiSlider.create(battery, {
+   start: [0, 799],
+   connect: true,
+   step: 1,
+   range: {
+     'min': 0,
+     'max': 799
+   }});
+
+   noUiSlider.create(motor, {
+   start: [0, 6000],
+   connect: true,
+   step: 1,
+   range: {
+     'min': 0,
+     'max': 6000
+   }});
+
+
+
+var span_values=[
+  document.getElementById('span_min'),
+  document.getElementById('span_max')
+];
+
+var span_weight_values=[
+document.getElementById('span_min_weight'),
+  document.getElementById('span_max_weight')
+
+
+];
+
+var span_range_values=[
+document.getElementById('span_min_range'),
+  document.getElementById('span_max_range')
+
+];
+
+var span_speed_values=[
+document.getElementById('span_min_topspeed'),
+  document.getElementById('span_max_topspeed')
+];
+
+var span_battery_values=[
+document.getElementById('span_min_batterysize'),
+  document.getElementById('span_max_batterysize')
+];
+
+var span_motor_values=[
+document.getElementById('span_min_motorpower'),
+  document.getElementById('span_max_motorpower')
+];
+
+
+slider.noUiSlider.on('update', function (values, handle) {
+    span_values[handle].innerHTML = "$"+ values[handle];
+
+    
+
+
+      var price_min=values[0];
+      var price_max=values[1];
+
+      if (price_min !=100 || price_max !=3500)
+      {
+        slider.classList.remove('reset');
+        widget.set_max_price(price_max);
+        widget.set_min_price(price_min);
+        slider.parentElement.classList.add('active');
+}
+      
+   if (price_min ==100 && price_max ==3500)
+      {
+        slider.classList.add('reset');
+        slider.parentElement.classList.remove('active');
+}
+
+
+  
+
+
+
+      
+
+
+
+
+});
+weight.noUiSlider.on('update', function (values, handle) {
+    span_weight_values[handle].innerHTML = values[handle]+'lbs';
+
+weight.classList.remove('reset');
+      var weight_min=values[0];
+      var weight_max=values[1];
+
+
+      
+       
+
+        if (weight_min !=5 || weight_max != 100)
+      {
+        weight.classList.remove('reset');
+        widget.set_max_weight(weight_max);
+        widget.set_min_weight(weight_min);
+        weight.parentElement.classList.add('active');
+}
+      
+   if (weight_min ==5 && weight_max ==100)
+      {
+        weight.classList.add('reset');
+        weight.parentElement.classList.remove('active');
+}    
+
+
+
+
+
+});
+
+range.noUiSlider.on('update', function (values, handle) {
+    span_range_values[handle].innerHTML = values[handle]+'mi';
+range.classList.remove('reset');
+
+      var range_min=values[0];
+      var range_max=values[1];
+
+
+      
+       
+      if (range_min !=5 || range_max != 100)
+      {
+        range.classList.remove('reset');
+        widget.set_min_range(range_min);
+        widget.set_max_range(range_max);
+        range.parentElement.classList.add('active');
+}
+      
+   if (range_min ==5 && range_max ==100)
+      {
+        range.classList.add('reset');
+        range.parentElement.classList.remove('active');
+}    
+
+
+
+
+
+});
+
+
+speed.noUiSlider.on('update', function (values, handle) {
+    span_speed_values[handle].innerHTML = values[handle]+'mph';
+    speed.classList.remove('reset');
+
+      var speed_min=values[0];
+      var speed_max=values[1];
+
+
+      
+        
+
+        if (speed_min !=0 || speed_max != 50)
+      {
+        speed.classList.remove('reset');
+        widget.set_min_speed(speed_min);
+        widget.set_max_speed(speed_max);
+        speed.parentElement.classList.add('active');
+}
+      
+   if (speed_min ==0 && speed_max ==50)
+      {
+        speed.classList.add('reset');
+        speed.parentElement.classList.remove('active');
+}    
+    
+});
+
+
+battery.noUiSlider.on('update', function (values, handle) {
+    span_battery_values[handle].innerHTML = values[handle]+'Wh';
+battery.classList.remove('reset');
+      var battery_min=values[0];
+      var battery_max=values[1];
+
+
+     
+        
+
+
+      if (battery_min !=0 || battery_max != 799)
+      {
+        battery.classList.remove('reset');
+        widget.set_min_batterysize(battery_min);
+        widget.set_max_batterysize(battery_max);
+        battery.parentElement.classList.add('active');
+}
+      
+   if (battery_min ==0 && battery_max ==799)
+      {
+        battery.classList.add('reset');
+        battery.parentElement.classList.remove('active');
+}    
+     
+
+});
+
+motor.noUiSlider.on('update', function (values, handle) {
+    span_motor_values[handle].innerHTML = values[handle]+'W';
+motor.classList.remove('reset');
+      var motor_min=values[0];
+      var motor_max=values[1];
+
+
+      
+        
+        if (motor_min !=0 || motor_max != 6000)
+      {
+        motor.classList.remove('reset');
+        widget.set_min_motorpower(motor_min);
+        widget.set_max_motorpower(motor_max);
+        motor.parentElement.classList.add('active');
+}
+      
+   if (motor_min ==0 && motor_max ==6000)
+      {
+        motor.classList.add('reset');
+        motor.parentElement.classList.remove('active');
+}
+     
+
+
+});
+
+
+
+
+});
+    
+
 var clicked=false; 
 
 
@@ -461,7 +743,20 @@ var url = window.location.pathname.split('/');
 
         	{
 
-        		
+        	
+
+
+          var slider = document.getElementById('priceSlider');
+          var weight= document.getElementById('weightSlider');
+          var range= document.getElementById('rangeSlider');
+          var speed= document.getElementById('speedSlider');
+          var battery=document.getElementById('batterySlider');
+          var motor=document.getElementById('motorSlider');
+
+          var slider_list=[slider,weight,range,speed,battery,motor];
+
+
+
 
 
         	var	filter_list=document.getElementsByClassName('selected');
@@ -477,54 +772,62 @@ var url = window.location.pathname.split('/');
         	}
 
         	
+          // slider.noUiSlider.reset();
+          
+for(var i=0;i<slider_list.length;i++)
+{
+  slider_list[i].noUiSlider.reset();
+  slider_list[i].classList.add("reset");
 
+}
+  
         	
 
-//Reset price sliders
-document.getElementById("max_slider").value=3500;
-document.getElementById("min_slider").value=0;
-document.getElementById("span_min").innerHTML='$' + 0;
-document.getElementById("span_max").innerHTML='$' + 3500;
-document.getElementById("max_slider").parentElement.classList.remove('active');
+// //Reset price sliders
+// document.getElementById("max_slider").value=3500;
+// document.getElementById("min_slider").value=0;
+// document.getElementById("span_min").innerHTML='$' + 0;
+// document.getElementById("span_max").innerHTML='$' + 3500;
+// document.getElementById("max_slider").parentElement.classList.remove('active');
 
-//reset weight sliders
-document.getElementById("max_slider_weight").value=100;
-document.getElementById("min_slider_weight").value=0;
-document.getElementById("span_min_weight").innerHTML=0 + ' lbs';
-document.getElementById("span_max_weight").innerHTML=100 + ' lbs';
-document.getElementById("max_slider_weight").parentElement.classList.remove('active');
-
-
-
-//reset topspeed sliders
-document.getElementById("max_slider_topspeed").value=50;
-document.getElementById("min_slider_topspeed").value=0;
-document.getElementById("span_min_topspeed").innerHTML=0 + ' mph';
-document.getElementById("span_max_topspeed").innerHTML=50 + ' mph';
-document.getElementById("max_slider_topspeed").parentElement.classList.remove('active');
-
-//range sliders
-document.getElementById("max_slider_range").value=100;
-document.getElementById("min_slider_range").value=0;
-document.getElementById("span_min_range").innerHTML=0 + ' miles';
-document.getElementById("span_max_range").innerHTML=100 + ' miles';
-document.getElementById("max_slider_range").parentElement.classList.remove('active');
-
-//motor power sliders
-document.getElementById("max_slider_motorpower").value=6000;
-document.getElementById("min_slider_motorpower").value=0;
-document.getElementById("span_min_motorpower").innerHTML=0 + ' W';
-document.getElementById("span_max_motorpower").innerHTML=6000 + ' W';
-document.getElementById("max_slider_motorpower").parentElement.classList.remove('active');
+// //reset weight sliders
+// document.getElementById("max_slider_weight").value=100;
+// document.getElementById("min_slider_weight").value=0;
+// document.getElementById("span_min_weight").innerHTML=0 + ' lbs';
+// document.getElementById("span_max_weight").innerHTML=100 + ' lbs';
+// document.getElementById("max_slider_weight").parentElement.classList.remove('active');
 
 
-//batterysize sliders
 
-document.getElementById("max_slider_batterysize").value=799;
-document.getElementById("min_slider_batterysize").value=0;
-document.getElementById("span_min_batterysize").innerHTML=0 + ' Wh';
-document.getElementById("span_max_batterysize").innerHTML=799 + ' Wh';
-document.getElementById("max_slider_batterysize").parentElement.classList.remove('active');
+// //reset topspeed sliders
+// document.getElementById("max_slider_topspeed").value=50;
+// document.getElementById("min_slider_topspeed").value=0;
+// document.getElementById("span_min_topspeed").innerHTML=0 + ' mph';
+// document.getElementById("span_max_topspeed").innerHTML=50 + ' mph';
+// document.getElementById("max_slider_topspeed").parentElement.classList.remove('active');
+
+// //range sliders
+// document.getElementById("max_slider_range").value=100;
+// document.getElementById("min_slider_range").value=0;
+// document.getElementById("span_min_range").innerHTML=0 + ' miles';
+// document.getElementById("span_max_range").innerHTML=100 + ' miles';
+// document.getElementById("max_slider_range").parentElement.classList.remove('active');
+
+// //motor power sliders
+// document.getElementById("max_slider_motorpower").value=6000;
+// document.getElementById("min_slider_motorpower").value=0;
+// document.getElementById("span_min_motorpower").innerHTML=0 + ' W';
+// document.getElementById("span_max_motorpower").innerHTML=6000 + ' W';
+// document.getElementById("max_slider_motorpower").parentElement.classList.remove('active');
+
+
+// //batterysize sliders
+
+// document.getElementById("max_slider_batterysize").value=799;
+// document.getElementById("min_slider_batterysize").value=0;
+// document.getElementById("span_min_batterysize").innerHTML=0 + ' Wh';
+// document.getElementById("span_max_batterysize").innerHTML=799 + ' Wh';
+// document.getElementById("max_slider_batterysize").parentElement.classList.remove('active');
 
 
 
