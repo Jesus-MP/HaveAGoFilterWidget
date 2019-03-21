@@ -38,7 +38,7 @@ h3 {
 	font-size: 2em;
 }
 h4, .banner-title {
-	font-size: 1.5em;
+	font-size: 2em;
 }
 h5 {
 	font-size: 1em;
@@ -67,12 +67,11 @@ div.entry-content a, div.entry-content a:hover {
 /*** Responsive Styles Smartphone Portrait ***/
 @media all and (max-width: 479px) {
 	h1, .product_title.entry-title, .page-content .blog_item--info .entry-title, h3.page-title {
-	font-size: 2em !important;
-	/*font-size: 11vw !important;*/	
+	font-size: 3em !important;
 	line-height: 1;
 	}
 	h2 {
-		font-size: 1.75em;
+		font-size: 2.5em;
 	/*	font-size: 10vw !important;	*/
 	}
 	h3, .la-advanced-product-filters .widget-title span {
@@ -80,7 +79,7 @@ div.entry-content a, div.entry-content a:hover {
 	/*	font-size: 9vw !important;	*/
 	}
 	h4, .banner-title {
-		font-size: 1.25em;
+		font-size: 2em;
 	/*	font-size: 8vw !important;	*/
 	}
 	h5 {
@@ -179,7 +178,13 @@ h4{
 	border: 0px !important;
 }
 .vc_btn3-container a {
-	padding: 5px 5px !important;
+	border-radius: 0 !important;
+	background-color: #6000ff !important;
+	color: #00f3bf !important;
+	text-transform: uppercase;
+	font-family: 'opineheavy', sans-serif;
+	font-size: 1.25em !important;
+	padding: 10px 15px !important;
 }
 .vc_btn3-container:hover a{
 	background-color: #4700E6 !important;
@@ -230,6 +235,14 @@ h4{
 }
 .la-banner-box{
 	margin-bottom: 0px;
+}
+/*Seperator*/
+.vc_separator{
+	margin-bottom: 45px;
+}
+/*Add Bottom Margin to Blog Image*/
+.vc_gitem-animated-block {
+	margin-bottom: 15px;
 }
 /*Tag Clouds*/
 .widget_tag_cloud .tagcloud a {
@@ -313,13 +326,11 @@ h4{
 }
 /*Home Page*/
 @media all and (max-width: 767px) {
-	#mobility-revolution {
-	margin-top: 20% !important;
-}
-	#go-tv {
+	#mobility-revolution, #go-tv, #micromobility-roundup  {
 	margin-top: 20% !important;
 }
 }
+
 /* Styling Product Page */
 /*Spacing*/
 .product--summary .single-price-wrapper{
@@ -329,12 +340,13 @@ h4{
 	margin: 20px 0px;
 }
 /*Price*/
-.woocommerce-Price-amount{
+.woocommerce-Price-amount.amount{
 	font-family: opineheavy;
 	color: #00f3bf;
 	background-color: #6000ff;
 	padding: 0.5em;
 	font-weight: 100 !important;
+	font-size: 1.25em;
 }
 /*Button*/
 .cart .single_add_to_cart_button{
@@ -615,6 +627,7 @@ li strong {
 }
 p.quick_specs{
 	margin: auto 0;
+	margin-bottom: 1em;
 	text-transform: uppercase;
 	color: #6000ff;
 	font-size: 1em;
@@ -710,6 +723,12 @@ div.summary.entry-summary{
 	grid-row: 3;
 	}	
 }
+/*Add to Any Custom Icons Patch*/
+.a2a_kit a img{
+	box-shadow: none !important;
+	min-width: 44px !important;
+	max-width: 64px !important;
+}
 /*Blog Post*/
 .entry-meta .dl-icon-clock{
 	display: none;
@@ -734,7 +753,7 @@ h3.entry-title a{
 }
 @media only screen and (max-width: 479px){
 	.page-content .blog_item--info h1.entry-title{
-		font-size: 2.5em !important;
+		font-size: 2em !important;
 	}
 }
 .blog_item--category-link{
@@ -750,14 +769,6 @@ h3.entry-title a{
 .vc_grid-item{
 	margin-bottom: 5%;
 }
-.vc_btn3-container a{
-	border-radius: 0 !important;
-	background-color: #6000ff !important;
-	color: #00f3bf !important;
-	text-transform: uppercase;
-	font-family: 'opineheavy', sans-serif;
-	font-size: 0.75em !important;
-}
 .vc_gitem-col{
 	padding: 0 !important;
 }
@@ -770,11 +781,16 @@ h3.entry-title a{
 	background-color: #6000ff !important;
 	color: #00f3bf !important;
 }
-/*Mobility Revolution*/
+@media (min-width: 768px){
+.vc_col-sm-4 {
+    width: 33%;
+}
+}
+/*Mobility Revolution and Micromobility Roundup*/
 .pf-icon.pf-icon-link{
 	display: none;
 }
-#site-content article.category-mobility-revolution{
+#site-content article.category-mobility-revolution, #site-content article.category-micromobility-roundup{
 	margin-bottom: 135px;
 }
 .page-content .blog_item h1.entry-title{
@@ -808,26 +824,33 @@ h3.entry-title a{
 .page-content .blog_item:nth-child(3n) h1.entry-title a:hover{
 	color: #29f4c1 !important;
 }
-article.category-mobility-revolution .btn{
-	padding: 0px;
-	font-size: 1em;
+article.category-mobility-revolution .btn, article.category-micromobility-roundup .btn{
+	padding: 5px;
+	font-size: 1.125em;
 	font-weight: 100;
-	margin-right: 10px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+    background-color: #6000ff;
+    color: #00f3bf;
+    line-height: 30px;
 }
-article.category-mobility-revolution .la-sharing-posts{
+article.category-mobility-revolution .la-sharing-posts, article.category-micromobility-roundup .la-sharing-posts{
 	background-color: #09cffc;
-	padding: 3px 12px;
+	padding: 5px;
+	font-size: 1.125em;
 	border: 10px solid #09cffc;
 	font-family: 'opineheavy', sans-serif;
 	text-transform: uppercase;
 	color: #6000ff;
 	letter-spacing: 1px !important;
-	margin-left: 10px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	line-height: 30px;
 }
-article.category-mobility-revolution .la-sharing-posts:hover{
+article.category-mobility-revolution .la-sharing-posts:hover, article.category-micromobility-roundup .la-sharing-posts:hover{
 	color: #fff;
 }
-article.category-mobility-revolution .la-sharing-posts .fa.fa-share-alt {
+article.category-mobility-revolution .la-sharing-posts .fa.fa-share-alt, article.category-micromobility-roundup .la-sharing-posts .fa.fa-share-alt {
 	display:none;
 }
 /* Pagination Loader*/
@@ -878,11 +901,12 @@ article.category-mobility-revolution .la-sharing-posts .fa.fa-share-alt {
 }
 /*Share Post*/
 .la-sharing-single-posts{
-	 display: grid;
-   grid-template-columns: auto auto;
-	border-bottom: 2px solid #6000ff;
+	/*display: grid;
+	grid-template-columns: auto auto;
+	border-bottom: 2px solid #6000ff;*/
+	display: none;
 }
-.la-sharing-single-posts span{
+/*.la-sharing-single-posts span{
 	font-size: 2em;
   font-family: 'opineheavy', sans-serif;
   text-transform: uppercase;
@@ -903,8 +927,13 @@ article.category-mobility-revolution .la-sharing-posts .fa.fa-share-alt {
 }
 .social--sharing a.google-plus {
 	display: none;
-}
+}*/
 /*Byline*/
+.blog_item--meta.entry-meta{
+	font-family: 'avenir-next-regular' !important;
+	font-size: 1em !important;
+	margin: 15px 0 !important;	
+}
 .byline .author a, .blog_item--meta a{
 	color: #333 !important;
 }
@@ -1057,14 +1086,19 @@ td.product-name a:hover{
 /*Product Filter*/
 .la-advanced-product-filters{
 	display: block;
+	background-color: #fafafa;
+    box-shadow: 10px 10px #6000ff;
 }
 .la-advanced-product-filters .widget-title span{
 	color: #29f4c1 !important;
 	font-size: 1.5em !important;
 	text-shadow: 3px 3px #6000ff;
 }
-.la-advanced-product-filters{
-box-shadow: 0 0 36px 0 rgba(0, 0, 0, 0.15);
+@media only screen and (max-width: 767px){
+	.la-advanced-product-filters{
+		background-color: #fff;
+		box-shadow: 0 0 36px 0 rgba(0, 0, 0, 0.15);
+	}
 }
 .wc-view-count{
 	min-width: 200px;
@@ -1088,13 +1122,14 @@ box-shadow: 0 0 36px 0 rgba(0, 0, 0, 0.15);
 	display: grid;
 	justify-items: left;
 	grid-template-areas: 'title price' 'spec spec' 'description description' 'link link';
-	grid-template-columns: 75% 25%;
+	grid-template-columns: 70% 30%;
 }
 #la_shop_products .product_item .product_item--inner{
 	margin-bottom: 4em;
 }
 #la_shop_products .product_item--info-inner span.price{
 	justify-self: right;
+	padding-top: 0.5em;
 }
 #la_shop_products .product_item--title{
 	font-size: 1.5em;
@@ -1121,12 +1156,30 @@ table.dataTable{
 	width: initial !important;
 }
 /*Product Filter*/
-#extraf_widget-2 .widget-title{
+.widget_haveago_widget .widget-title{
 	margin-bottom: 1.25em;
 }
 
-.wc-toolbar-left, .wc-view-toggle{
+.wc-view-toggle{
 	display: none;
+}
+/* Filter Board Toggle */
+.wc-toolbar-container .btn-advanced-shop-filter, .btn-back-to-categories{
+	font-family: 'avenir-next-heavy', sans-serif !important;
+	color: #6000ff;
+	letter-spacing: 1px;
+    font-weight: 100;
+    border: 3px solid #29f4c1;
+    padding: 0.5em 1em;
+}
+.btn-back-to-categories{
+	float: left;
+}
+.wc-toolbar-container .btn-advanced-shop-filter i{
+	display: none;
+}
+.close-advanced-product-filters svg{
+	color: #00f3bf;
 }
 /* Filter Slider */
 .rangeslider{
@@ -1249,7 +1302,7 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb {
 }
 /*New Filter Sliders from NoUI*/
 html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
-	right: -0.5em !important;
+	right: -0.75em !important;
 }
 .noUi-connect {
     background: #29f4c1 !important;
@@ -1258,20 +1311,20 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
 	height: 0.35em !important;
 }
 .noUi-horizontal .noUi-handle {
-  width: 1em !important;
-  height: 1em !important;
+  width: 1.25em !important;
+  height: 1.25em !important;
   border: 3px solid #29f4c1 !important;
   border-radius: 100% !important;
   background:#29f4c1 !important;
   cursor: default;
   box-shadow: inset 0 0 1px #FFF;
-	top:-4px !important;
+	top:-5px !important;
 }
 .noUi-handle::after, .noUi-handle::before{
 	width: 0px !important;
 }
 .noUiSlider{
-	margin-bottom: 1em !important;
+	margin: 1em 0 !important;
 }
 .noUi-target {
 	border-width: 0px !important;
@@ -1283,48 +1336,51 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
   background: #6000ff !important;
 }
 /*Filter Board Layout*/
-#extraf_widget-2{
-	width: 100%;
+.widget_haveago_widget{
+	width: 100% !important;
 	display: grid;
 	grid-template-areas: 'sliders sliders tags tags controls';
 	grid-template-columns: 21% 21% 21% 21% 16%;
 	margin-bottom: 70px;
 }
-#extraf_widget-2 .controls{
+.widget_haveago_widget .controls{
 	grid-area: controls;
 }
-#extraf_widget-2 .controls .btn{
+.widget_haveago_widget .controls .btn{
 	width: 100%;
 	margin-bottom: 2em;
 	border: none;
 	text-align: center;
+	padding: 0.5em;
 }
-#extraf_widget-2 .controls #submit_filters{
+.widget_haveago_widget .controls #submit_filters{
 	background-color: #6000ff;
 	color: #29f4c1;
+	font-size: 1.25em
 }
-#extraf_widget-2 .controls #clear_filters{
+.widget_haveago_widget .controls #clear_filters{
 	color: #6000ff;
 	background-color: #29f4c1;
+	font-size: 1.25em
 }
-#extraf_widget-2 .controls #submit_filters:hover, #extraf_widget-2 .controls #clear_filters:hover{
+.widget_haveago_widget .controls #submit_filters:hover, .widget_haveago_widget .controls #clear_filters:hover{
 	background-color: #09cffc;
 } 
-#extraf_widget-2 .widget-title span{
+.widget_haveago_widget .widget-title span{
 	text-shadow: none;
 }
-#extraf_widget-2 .sliders-box{
-	grid-area: sliders;
-}
-#extraf_widget-2 .tags-box{
-	grid-area: tags;
-}
-#extraf_widget-2 .sliders-box, #extraf_widget-2 .tags-box{
+.widget_haveago_widget .sliders-box, .widget_haveago_widget .tags-box{
 	display: grid;
 	grid-template-columns: 50% 50%;
 	grid-row-gap: 2em;
 }
-
+.widget_haveago_widget .sliders-box{
+	grid-area: sliders;
+	height: 25% !important;
+}
+.widget_haveago_widget .tags-box{
+	grid-area: tags;
+}
 .la-advanced-product-filters .close-advanced-product-filters {
 	top: 2em;
 	right: 2em;
@@ -1332,22 +1388,22 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
 
 /*** Responsive Styles Tablet Only ***/
 @media all and (min-width: 768px) and (max-width: 980px) {
- 	#extraf_widget-2 .widget-title{
+ 	.widget_haveago_widget .widget-title{
  		font-size: 13px;
  	}
- 	#extraf_widget-2 .controls .btn{
+ 	.widget_haveago_widget .controls .btn{
  		padding: 12px 10px;
  	}
 }
 
 @media only screen and (max-width: 767px){
 	
-	#extraf_widget-2{
+	.widget_haveago_widget{
 	grid-template-columns: 100% !important;
     grid-template-areas: 'controls' 'sliders' 'tags' !important;
 }
 	
-	#extraf_widget-2 .sliders-box, #extraf_widget-2 .tags-box{
+	.widget_haveago_widget .sliders-box, .widget_haveago_widget .tags-box{
 		grid-template-columns: 100%;
 }
 	.slider-container{
@@ -1367,18 +1423,23 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
 	  border-radius: 44px;
 	  z-index: 1;
 }
+	.tags-box a{
+	  line-height: 1.7;		
+	}
 }
 
 /* Tags Filter */
-.tags-box a{
+.tags-box a, .tags-box a:hover, .tags-box a:active, tags-box a:focus{
 	color: #6000ff;
+	display: block;
+	line-height: 1.25;
 }
 .comfort-a, .greatfor-a, .tech-a, .capabilities-a{
 	cursor: pointer;
 }
 .comfort-a.selected , .greatfor-a.selected , .tech-a.selected , .capabilities-a.selected {
 	font-family: 'avenir-next-heavy';
-	color: #6000ff;
+	color: #6000ff !important;
 }
 .product_item .item--excerpt{
 	display: block;
@@ -1387,10 +1448,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{
 }
 #la_shop_products .product-external-url{
 	grid-area: link;
-	margin-top: 1em;
+	margin: 1.5em 0;
 }
 #la_shop_products .product-external-url a{
-	padding: 1em 2em !important;
+	padding: 0.5em 1em !important;
 	color: #6000ff !important;
  	background-color: #00f3bf !important;
 }

@@ -9,59 +9,116 @@ $(document).bind('ready ajaxComplete',function() {
           var speed= document.getElementById('speedSlider');
           var battery=document.getElementById('batterySlider');
           var motor=document.getElementById('motorSlider');
+
+          var dynamic_min_price = Number(document.getElementById('span_min').innerHTML.replace(/\D/g,''));
+          var dynamic_max_price = Number(document.getElementById('span_max').innerHTML.replace(/\D/g,''));
+          var dynamic_min_weight = Number(document.getElementById('span_min_weight').innerHTML.replace(/\D/g,''));
+          var dynamic_max_weight = Number(document.getElementById('span_max_weight').innerHTML.replace(/\D/g,''));
+          var dynamic_min_range = Number(document.getElementById('span_min_range').innerHTML.replace(/\D/g,''));
+          var dynamic_max_range = Number(document.getElementById('span_max_range').innerHTML.replace(/\D/g,''));
+          var dynamic_min_speed = Number(document.getElementById('span_min_topspeed').innerHTML.replace(/\D/g,''));
+          var dynamic_max_speed = Number(document.getElementById('span_max_topspeed').innerHTML.replace(/\D/g,''));
+          var dynamic_min_battery = Number(document.getElementById('span_min_batterysize').innerHTML.replace(/\D/g,''));
+          var dynamic_max_battery = Number(document.getElementById('span_max_batterysize').innerHTML.replace(/\D/g,''));
+          var dynamic_min_motor = Number(document.getElementById('span_min_motorpower').innerHTML.replace(/\D/g,''));
+          var dynamic_max_motor = Number(document.getElementById('span_max_motorpower').innerHTML.replace(/\D/g,''));
+          // var dynamic_array = [dynamic_min_price, dynamic_max_price, dynamic_min_weight, dynamic_max_range];
+          console.log(typeof dynamic_min_price, dynamic_max_price);
   noUiSlider.create(slider, {
-   start: [100, 3500],
+   start: [dynamic_min_price, dynamic_max_price],
    connect: true,
    step: 1,
    range: {
-     'min': 100,
-     'max': 3500
-   }});
+     'min': dynamic_min_price,
+     'max': dynamic_max_price
+   },
+   ariaFormat: wNumb({
+        decimals: 2
+    }),
+    format: wNumb({
+        decimals: 2
+    })
+ });
 
   noUiSlider.create(weight, {
-   start: [5, 100],
+   start: [dynamic_min_weight, dynamic_max_weight],
    connect: true,
    step: 1,
    range: {
-     'min': 5,
-     'max': 100
-   }});
+     'min': dynamic_min_weight,
+     'max': dynamic_max_weight
+   },
+   ariaFormat: wNumb({
+        decimals: 0
+    }),
+    format: wNumb({
+        decimals: 0
+    })
+  });
 
   noUiSlider.create(range, {
-   start: [5, 100],
+   start: [dynamic_min_range, dynamic_max_range],
    connect: true,
    step: 1,
    range: {
-     'min': 5,
-     'max': 100
-   }});
+     'min': dynamic_min_range,
+     'max': dynamic_max_range
+   },
+   ariaFormat: wNumb({
+        decimals: 0
+    }),
+    format: wNumb({
+        decimals: 0
+    })
+  });
 
   noUiSlider.create(speed, {
-   start: [0, 50],
+   start: [dynamic_min_speed, dynamic_max_speed],
    connect: true,
    step: 1,
    range: {
-     'min': 0,
-     'max': 50
-   }});
+     'min': dynamic_min_speed,
+     'max': dynamic_max_speed
+   },
+   ariaFormat: wNumb({
+        decimals: 0
+    }),
+    format: wNumb({
+        decimals: 0
+    })
+  });
 
   noUiSlider.create(battery, {
-   start: [0, 799],
+   start: [dynamic_min_battery, dynamic_max_battery],
    connect: true,
    step: 1,
    range: {
-     'min': 0,
-     'max': 799
-   }});
+     'min': dynamic_min_battery,
+     'max': dynamic_max_battery
+   },
+   ariaFormat: wNumb({
+        decimals: 0
+    }),
+    format: wNumb({
+        decimals: 0
+    })
+  });
 
    noUiSlider.create(motor, {
-   start: [0, 6000],
+   start: [dynamic_min_motor, dynamic_max_motor],
    connect: true,
    step: 1,
    range: {
-     'min': 0,
-     'max': 6000
-   }});
+     'min': dynamic_min_motor,
+     'max': dynamic_max_motor
+   },
+   ariaFormat: wNumb({
+        decimals: 0
+    }),
+    format: wNumb({
+        decimals: 0
+    })
+  });
 
 
 
@@ -108,7 +165,7 @@ slider.noUiSlider.on('update', function (values, handle) {
       var price_min=values[0];
       var price_max=values[1];
 
-      if (price_min !=100 || price_max !=3500)
+      if (price_min != dynamic_min_price || price_max != dynamic_max_price)
       {
         slider.classList.remove('reset');
         widget.set_max_price(price_max);
@@ -116,7 +173,7 @@ slider.noUiSlider.on('update', function (values, handle) {
         slider.parentElement.classList.add('active');
 }
       
-   if (price_min ==100 && price_max ==3500)
+   if (price_min == dynamic_min_price && price_max == dynamic_max_price)
       {
         slider.classList.add('reset');
         slider.parentElement.classList.remove('active');
@@ -144,7 +201,7 @@ weight.classList.remove('reset');
       
        
 
-        if (weight_min !=5 || weight_max != 100)
+        if (weight_min != dynamic_min_weight || weight_max != dynamic_max_weight)
       {
         weight.classList.remove('reset');
         widget.set_max_weight(weight_max);
@@ -152,7 +209,7 @@ weight.classList.remove('reset');
         weight.parentElement.classList.add('active');
 }
       
-   if (weight_min ==5 && weight_max ==100)
+   if (weight_min == dynamic_min_weight && weight_max == dynamic_max_weight)
       {
         weight.classList.add('reset');
         weight.parentElement.classList.remove('active');
@@ -174,7 +231,7 @@ range.classList.remove('reset');
 
       
        
-      if (range_min !=5 || range_max != 100)
+      if (range_min != dynamic_min_range || range_max != dynamic_max_range)
       {
         range.classList.remove('reset');
         widget.set_min_range(range_min);
@@ -182,7 +239,7 @@ range.classList.remove('reset');
         range.parentElement.classList.add('active');
 }
       
-   if (range_min ==5 && range_max ==100)
+   if (range_min == dynamic_min_range && range_max == dynamic_max_range)
       {
         range.classList.add('reset');
         range.parentElement.classList.remove('active');
@@ -206,7 +263,7 @@ speed.noUiSlider.on('update', function (values, handle) {
       
         
 
-        if (speed_min !=0 || speed_max != 50)
+        if (speed_min != dynamic_min_speed || speed_max != dynamic_max_speed)
       {
         speed.classList.remove('reset');
         widget.set_min_speed(speed_min);
@@ -214,7 +271,7 @@ speed.noUiSlider.on('update', function (values, handle) {
         speed.parentElement.classList.add('active');
 }
       
-   if (speed_min ==0 && speed_max ==50)
+   if (speed_min == dynamic_min_speed && speed_max == dynamic_max_speed)
       {
         speed.classList.add('reset');
         speed.parentElement.classList.remove('active');
@@ -234,7 +291,7 @@ battery.classList.remove('reset');
         
 
 
-      if (battery_min !=0 || battery_max != 799)
+      if (battery_min != dynamic_min_battery || battery_max != dynamic_max_battery)
       {
         battery.classList.remove('reset');
         widget.set_min_batterysize(battery_min);
@@ -242,7 +299,7 @@ battery.classList.remove('reset');
         battery.parentElement.classList.add('active');
 }
       
-   if (battery_min ==0 && battery_max ==799)
+   if (battery_min == dynamic_min_battery && battery_max == dynamic_max_battery)
       {
         battery.classList.add('reset');
         battery.parentElement.classList.remove('active');
@@ -260,7 +317,7 @@ motor.classList.remove('reset');
 
       
         
-        if (motor_min !=0 || motor_max != 6000)
+        if (motor_min != dynamic_min_motor || motor_max != dynamic_max_motor)
       {
         motor.classList.remove('reset');
         widget.set_min_motorpower(motor_min);
@@ -268,7 +325,7 @@ motor.classList.remove('reset');
         motor.parentElement.classList.add('active');
 }
       
-   if (motor_min ==0 && motor_max ==6000)
+   if (motor_min == dynamic_min_motor && motor_max == dynamic_max_motor)
       {
         motor.classList.add('reset');
         motor.parentElement.classList.remove('active');
@@ -485,58 +542,59 @@ var url = window.location.pathname.split('/');
 
 	
 
+      newterm=term.replace("-"," ");
+      newterm=newterm.replace(/\b\w/g, function(l){ return l.toUpperCase() });
+
+	    // if(term=='scooters')
+	    // {
+
+     //      newterm='Scooters';
+	    // }
+
+	    // if(term=='electric-skateboards')
+	    // {
+
+	    //   newterm='Electric Skateboards';
+	    // }
+
+	    // if(term=='electric-unicycles')
+	    // {
+
+	    //   newterm='Electric Unicycles';
+	    // }
+
+	    // if(term=='electric-bicycles')
+	    // {
+
+	    //   newterm='Electric Bicycles';
+	    // }
 
 
-	    if(term=='scooters')
-	    {
+	    // if(term=='folding-bicycles')
+	    // {
 
-          newterm='Scooters';
-	    }
-
-	    if(term=='electric-skateboards')
-	    {
-
-	      newterm='Electric Skateboards';
-	    }
-
-	    if(term=='electric-unicycles')
-	    {
-
-	      newterm='Electric Unicycles';
-	    }
-
-	    if(term=='electric-bicycles')
-	    {
-
-	      newterm='Electric Bicycles';
-	    }
+	    //   newterm='Folding Bicycles';
+	    // }
 
 
-	    if(term=='folding-bicycles')
-	    {
+	    // if(term=='compact-bicycles')
+	    // {
 
-	      newterm='Folding Bicycles';
-	    }
-
-
-	    if(term=='compact-bicycles')
-	    {
-
-	      newterm='Compact Bicycles';
-	    }
+	    //   newterm='Compact Bicycles';
+	    // }
 
 
-	    if(term=='portable-scooters')
-	    {
+	    // if(term=='portable-scooters')
+	    // {
 
-	      newterm='Portable Scooters';
-	    }
+	    //   newterm='Portable Scooters';
+	    // }
 
-	    if(term=='human-pods')
-	    {
+	    // if(term=='human-pods')
+	    // {
 
-	      newterm='Human Pods';
-	    }
+	    //   newterm='Human Pods';
+	    // }
 
 	    
 
@@ -607,57 +665,58 @@ var url = window.location.pathname.split('/');
 	
 
 
+      newterm=term.replace("-"," ");
+      newterm=newterm.replace(/\b\w/g, function(l){ return l.toUpperCase() });
+	    // if(term=='scooters')
+	    // {
 
-	    if(term=='scooters')
-	    {
+     //      newterm='Scooters';
+	    // }
 
-          newterm='Scooters';
-	    }
+	    // if(term=='electric-skateboards')
+	    // {
 
-	    if(term=='electric-skateboards')
-	    {
+	    //   newterm='Electric Skateboards';
+	    // }
 
-	      newterm='Electric Skateboards';
-	    }
+	    // if(term=='electric-unicycles')
+	    // {
 
-	    if(term=='electric-unicycles')
-	    {
+	    //   newterm='Electric Unicycles';
+	    // }
 
-	      newterm='Electric Unicycles';
-	    }
+	    // if(term=='electric-bicycles')
+	    // {
 
-	    if(term=='electric-bicycles')
-	    {
-
-	      newterm='Electric Bicycles';
-	    }
-
-
-	    if(term=='folding-bicycles')
-	    {
-
-	      newterm='Folding Bicycles';
-	    }
+	    //   newterm='Electric Bicycles';
+	    // }
 
 
-	    if(term=='compact-bicycles')
-	    {
+	    // if(term=='folding-bicycles')
+	    // {
 
-	      newterm='Compact Bicycles';
-	    }
+	    //   newterm='Folding Bicycles';
+	    // }
 
 
-	    if(term=='portable-scooters')
-	    {
+	    // if(term=='compact-bicycles')
+	    // {
 
-	      newterm='Portable Scooters';
-	    }
+	    //   newterm='Compact Bicycles';
+	    // }
 
-	    if(term=='human-pods')
-	    {
 
-	      newterm='Human Pods';
-	    }
+	    // if(term=='portable-scooters')
+	    // {
+
+	    //   newterm='Portable Scooters';
+	    // }
+
+	    // if(term=='human-pods')
+	    // {
+
+	    //   newterm='Human Pods';
+	    // }
 
   
 	  object.set_final_tags();

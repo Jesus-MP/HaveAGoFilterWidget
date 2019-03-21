@@ -25,18 +25,12 @@ add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 // Add Product Template //
 include('product-template/products.php');
 
-
-
-
 function my_enqueue() {
 
 	wp_enqueue_script( 'widget_script', get_template_directory_uri() . '/../la-zyra-child/assets/widget.js',  array ( 'jquery' ), 1.1, true);
 
-// wp_enqueue_script( 'jquery-v-2', 'http://code.jquery.com/jquery-2.1.3.min.js', false );
-
-// // wp_enqueue_script( 'jquery-mobile', 'http://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"', false );
-
 	wp_enqueue_script( 'jNoui','https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js', null, null, true );
+	wp_enqueue_script( 'wNumb','https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js', null, null, true );
 
 
 
@@ -49,13 +43,13 @@ function my_enqueue() {
 
 
 
-function extraf_register_widget() {
-register_widget( 'extraf_widget' );
+function haveago_register_widget() {
+register_widget( 'haveago_widget' );
 }
 
-add_action( 'widgets_init', 'extraf_register_widget' );
+add_action( 'widgets_init', 'haveago_register_widget' );
 
-class extraf_widget extends WP_Widget {
+class haveago_widget extends WP_Widget {
 
 
 
@@ -65,11 +59,11 @@ function __construct() {
 
 parent::__construct(
 // widget ID
-'extraf_widget',
+'haveago_widget',
 // widget name
-__('Extra Filters Features Widget', ' extraf_widget_domain'),
+__('Have A Go Filter', ' haveago_widget_domain'),
 // widget description
-array( 'description' => __( 'Extra Filters Features Widget Tutorial', 'extraf_widget_domain' ), )
+array( 'description' => __( 'Have A Go', 'haveago_widget_domain' ), )
 );
 }
 	
@@ -147,16 +141,17 @@ echo $args['before_title'] . $title . $args['after_title'];
 
 ?>
 <div class="rangeslider">
+	<p>
+		<span class="range_min light "></span>
+	    <span class="range_min light " id="span_min"><?php echo '$'.$min_range ?></span>
+		<span class="range_min light rightp">-</span>
+	    <span class="range_max light right" id="span_max"><?php echo '$'.$max_range ?></span>
+    </p>
 	<div id="priceSlider" class="noUiSlider""></div>
-                                <p>
-								<span class="range_min light "></span>
-                                <span class="range_min light " id="span_min"><?php echo '$'.$min_range ?></span>
-								<span class="range_min light rightp">-</span>
-                                <span class="range_max light right" id="span_max"><?php echo '$'.$max_range ?></span>
-                                </p>
+                              
                                 <!-- <input class="min" name="range_1" type="range" min="<?php echo $min_range ?>" max="<?php echo $max_range ?>" value="<?php echo $min_range ?>" id="min_slider"/>
                                 <input class="max" name="range_2" type="range" min="<?php echo $min_range ?>" max="<?php echo $max_range ?>" value="<?php echo $max_range ?>" id="max_slider"/> -->
-                            </div></br></br></div>
+</div></br></br></div>
                       
 
 
@@ -172,13 +167,14 @@ if ( ! empty( $title2 ) )
 echo $args['before_title'] . $title2 . $args['after_title'];
 ?>
 <div class="rangeslider">
+	<p>
+		<span class="range_min light "></span>
+        <span class="range_min light left" id="span_min_weight"><?php echo $min_range2.'&nbsp;lbs' ?></span>
+		<span class="range_min light rightp ">-</span>
+        <span class="range_max light right" id="span_max_weight"><?php echo $max_range2.'&nbsp;lbs' ?></span>
+    </p>
 	<div id="weightSlider" class="noUiSlider""></div>
-                                <p>
-								<span class="range_min light "></span>
-                                <span class="range_min light left" id="span_min_weight"><?php echo $min_range2.'&nbsp;lbs' ?></span>
-								<span class="range_min light rightp ">-</span>
-                                <span class="range_max light right" id="span_max_weight"><?php echo $max_range2.'&nbsp;lbs' ?></span>
-                                </p>
+                                
                                 <!-- <input class="min" name="range_1" type="range" min="<? echo $min_range2 ?>" max="<? echo $max_range2 ?>" value="<?php echo $min_range2 ?>" id="min_slider_weight"/>
                                 <input class="max" name="range_1" type="range" min="<? echo $min_range2 ?>" max="<? echo $max_range2 ?>" value="<?php echo $max_range2 ?>" id="max_slider_weight"/> -->
                             </div></br></br></div>
@@ -196,13 +192,14 @@ echo $args['before_title'] . $title4 . $args['after_title'];
 
 ?>
 <div class="rangeslider">
+	<p>
+		<span class="range_min light "></span>
+        <span class="range_min light left" id="span_min_range"><?php echo $min_range4.'&nbsp;miles' ?></span>
+		<span class="range_min light rightt ">-</span>
+        <span class="range_max light right" id="span_max_range"><?php echo $max_range4.'&nbsp;miles' ?></span>
+    </p>
 	<div id="rangeSlider" class="noUiSlider""></div> 
-                                <p>
-								<span class="range_min light "></span>
-                                <span class="range_min light left" id="span_min_range"><?php echo $min_range4.'&nbsp;miles' ?></span>
-								<span class="range_min light rightt ">-</span>
-                                <span class="range_max light right" id="span_max_range"><?php echo $max_range4.'&nbsp;miles' ?></span>
-                                </p>
+                                
                                 <!-- <input class="min" name="range_1" type="range" min="<?php echo $min_range4 ?>" max="<?php echo $max_range4 ?>" value="<?php echo $min_range4 ?>"id="min_slider_range" />
                                 <input class="max" name="range_1" type="range" min="<?php echo $min_range4 ?>" max="<?php echo $max_range4 ?>" value="<?php echo $max_range4 ?>"id="max_slider_range" /> -->
                             </div></br></br></div>
@@ -220,16 +217,17 @@ echo $args['before_title'] . $title3 . $args['after_title'];
 
 ?>
 <div class="rangeslider">
+	<p>
+		<span class="range_min light "></span>
+	    <span class="range_min light left" id="span_min_topspeed"><?php echo $min_range3.'&nbsp;mph' ?></span>
+		<span class="range_min light rightt ">-</span>
+	    <span class="range_max light right" id="span_max_topspeed"><?php echo $max_range3.'&nbsp;mph' ?></span>
+    </p>
 	<div id="speedSlider" class="noUiSlider""></div>
-                                <p>
-								<span class="range_min light "></span>
-                                <span class="range_min light left" id="span_min_topspeed"><?php echo $min_range3.'&nbsp;mph' ?></span>
-								<span class="range_min light rightt ">-</span>
-                                <span class="range_max light right" id="span_max_topspeed"><?php echo $max_range3.'&nbsp;mph' ?></span>
-                                </p>
+                                
                                 <!-- <input class="min" name="range_1" type="range" min="<? echo $min_range3 ?>" max="<? echo $max_range3 ?>" value="<?php echo $min_range3 ?>"id="min_slider_topspeed" />
                                 <input class="max" name="range_1" type="range" min="<? echo $min_range3 ?>" max="<? echo $max_range3 ?>" value="<?php echo $max_range3 ?>"id="max_slider_topspeed" /> -->
-                            </div></br></br></div>
+</div></br></br></div>
 
 
  <?php                            
@@ -247,16 +245,17 @@ echo $args['before_title'] . $title6 . $args['after_title'];
 //output
 ?>
 <div class="rangeslider">
+	<p>
+		<span class="range_min light "></span>
+        <span class="range_min light left" id="span_min_batterysize"><?php echo $min_range6.'&nbsp;Wh' ?></span>
+		<span class="range_min light rightt ">-</span>
+        <span class="range_max light right" id="span_max_batterysize"><?php echo $max_range6.'&nbsp;Wh' ?></span>
+    </p>
 	<div id="batterySlider" class="noUiSlider""></div>
-                                <p>
-								<span class="range_min light "></span>
-                                <span class="range_min light left" id="span_min_batterysize"><?php echo $min_range6.'&nbsp;Wh' ?></span>
-								<span class="range_min light rightt ">-</span>
-                                <span class="range_max light right" id="span_max_batterysize"><?php echo $max_range6.'&nbsp;Wh' ?></span>
-                                </p>
+                                
                                 <!-- <input class="min" name="range_1" type="range" min="<?php echo $min_range6 ?>" max="<?php echo $max_range6 ?>" value="<?php echo $min_range6 ?>"id="min_slider_batterysize" />
                                 <input class="max" name="range_1" type="range" min="<?php echo $min_range6 ?>" max="<?php echo $max_range6 ?>" value="<?php  echo $max_range6 ?>"id="max_slider_batterysize" /> -->
-                            </div></br></br></div>
+</div></br></br></div>
 
 <?php
 //if title is present
@@ -270,17 +269,17 @@ echo $args['before_title'] . $title5 . $args['after_title'];
 //output
 ?>
 <div class="rangeslider">
-	<div id="motorSlider" class="noUi-origin"></div>
-<br>
-                                <p>
-								<span class="range_min light "></span>
-                                <span class="range_min light left" id="span_min_motorpower"><?php echo $min_range5.'&nbsp;W' ?></span>
-								<span class="range_min light rightt ">-</span>
-                                <span class="range_max light right" id="span_max_motorpower"><?php echo $max_range5.'&nbsp;W' ?></span>
-                                </p>
+	<p>
+		<span class="range_min light "></span>
+        <span class="range_min light left" id="span_min_motorpower"><?php echo $min_range5.'&nbsp;W' ?></span>
+		<span class="range_min light rightt ">-</span>
+        <span class="range_max light right" id="span_max_motorpower"><?php echo $max_range5.'&nbsp;W' ?></span>
+    </p>
+	<div id="motorSlider" class="noUiSlider"></div>
+                                
                                <!--  <input class="min" name="range_1" type="range" min="<?php echo $min_range5 ?>" max="<?php echo $max_range5 ?>" value="<?php echo $min_range5 ?>"id="min_slider_motorpower" />
                                 <input class="max" name="range_1" type="range" min="<?php echo $min_range5 ?>" max="<?php echo $max_range5 ?>" value="<?php echo $max_range5 ?>"id="max_slider_motorpower" /> -->
-                            </div></br></br></div>
+</div></br></br></div>
 
 
 </div>
@@ -298,12 +297,12 @@ $GreatFor='Great For';
 	<?php
 echo $args['before_title'] . $Capabilities. $args['after_title'];
 ?>
-<a  class="capabilities-a"id="Portable">Portable</a></br>
-<a  class="capabilities-a"id="Rollable">Rollable</a></br>
+<a  class="capabilities-a" id="Portable">Portable</a></br>
+<a  class="capabilities-a" id="Rollable">Rollable</a></br>
 <a  class="capabilities-a" id="Cargo">Cargo</a></br>
-<a  class="capabilities-a"id="Hill Capable">Hill Capable</a></br>
-<a  class="capabilities-a"id="Off-Road">Off-Road Capable</a></br>
-<a  class="capabilities-a"id="Weather">Weather</a></br>
+<a  class="capabilities-a" id="Hill Capable">Hill Capable</a></br>
+<a  class="capabilities-a" id="Off-Road">Off-Road Capable</a></br>
+<a  class="capabilities-a" id="Weather">Weather</a></br>
 <a  class="capabilities-a" id="Unique">Unique Design</a></br>
 </div>
 
@@ -318,9 +317,9 @@ echo $args['before_title'] . $Comfort. $args['after_title'];
 <a  class="comfort-a" id="Seat">Seat</a></br>
 <a  class="comfort-a" id="Suspension">Suspension</a></br>
 <a  class="comfort-a" id="Powerful Brakes">Powerful Brakes</a></br>
-<a  class="comfort-a"id="Lights">Lights</a></br>
-<a  class="comfort-a"id="Horn/Bell">Horn/Bell</a></br>
-<a  class="comfort-a"id="step-thru">Step-Thru (For Bikes)</a></br>
+<a  class="comfort-a" id="Lights">Lights</a></br>
+<a  class="comfort-a" id="Horn/Bell">Horn/Bell</a></br>
+<a  class="comfort-a" id="step-thru">Step-Thru (For Bikes)</a></br>
 </div>
 
 
@@ -331,9 +330,9 @@ echo $args['before_title'] . $Comfort. $args['after_title'];
 echo $args['before_title'] . $Tech. $args['after_title'];
 ?>
 <!-- <a  class="tech-a"id="Anti-Theft">Anti-Theft</a></br> -->
-<a  class="tech-a"id="Swappable Battery">Swappable Battery</a></br>
-<a  class="tech-a"id="USB Charger">USB Charger</a></br>
-<a  class="tech-a"id="Smartphone App">Smartphone App</a></br>
+<a  class="tech-a" id="Swappable Battery">Swappable Battery</a></br>
+<a  class="tech-a" id="USB Charger">USB Charger</a></br>
+<a  class="tech-a" id="Smartphone App">Smartphone App</a></br>
 </div>
 
 
@@ -341,19 +340,19 @@ echo $args['before_title'] . $Tech. $args['after_title'];
 <?php
 echo $args['before_title'] . $GreatFor. $args['after_title'];
 ?>
-<a  class="greatfor-a"id="Fun">Fun/Recreation</a></br>
-<a  class="greatfor-a"id="Exercise">Exercise</a></br>
-<a  class="greatfor-a"id="Commuting">Commuting</a></br>
-<a  class="greatfor-a"id="Groceries">Groceries</a></br>
-<a  class="greatfor-a"id="Metro">Metro/Bus</a></br>
+<a  class="greatfor-a" id="Fun">Fun/Recreation</a></br>
+<a  class="greatfor-a" id="Exercise">Exercise</a></br>
+<a  class="greatfor-a" id="Commuting">Commuting</a></br>
+<a  class="greatfor-a" id="Groceries">Groceries</a></br>
+<a  class="greatfor-a" id="Metro">Metro/Bus</a></br>
 </div>
 </div>
 
 
 <!--Search Button-->
 <div class="controls">
-<button type="button" class="btn btn-primary" id="submit_filters">Search</button>
-<button type="button" class="btn" id="clear_filters">Reset Filters</button>
+<a href="#la_shop_products"><button type="button" class="btn btn-primary" id="submit_filters">Search</button></a>
+<a href="#la_shop_products"><button type="button" class="btn" id="clear_filters">Reset Filters</button></a>
 </div>
 
 <?php
@@ -369,7 +368,7 @@ public function form( $instance ) {
 if ( isset( $instance[ 'title' ] ) )
 $title = $instance[ 'title' ];
 else
-$title = __( 'Default Title', 'extraf_widget_domain' );
+$title = __( 'Default Title', 'haveago_widget_domain' );
 
 $min_range= $instance['min_range'];
 $max_range= $instance['max_range'];	
@@ -379,7 +378,7 @@ $max_range= $instance['max_range'];
 if ( isset( $instance[ 'title2' ] ) )
 $title2 = $instance[ 'title2' ];
 else
-$title2 = __( 'Default Title2', 'extraf_widget_domain' );
+$title2 = __( 'Default Title2', 'haveago_widget_domain' );
 $min_range2= $instance['min_range2'];
 $max_range2= $instance['max_range2'];
 	
@@ -387,7 +386,7 @@ $max_range2= $instance['max_range2'];
 if ( isset( $instance[ 'title3' ] ) )
 $title3 = $instance[ 'title3' ];
 else
-$title3 = __( 'Default Title3', 'extraf_widget_domain' );
+$title3 = __( 'Default Title3', 'haveago_widget_domain' );
 $min_range3= $instance['min_range3'];
 $max_range3= $instance['max_range3'];	
 	
@@ -395,14 +394,14 @@ $max_range3= $instance['max_range3'];
 if ( isset( $instance[ 'title4' ] ) )
 $title4= $instance[ 'title4' ];
 else
-$title4 = __( 'Default Title4', 'extraf_widget_domain' );
+$title4 = __( 'Default Title4', 'haveago_widget_domain' );
 $min_range4= $instance['min_range4'];
 $max_range4= $instance['max_range4'];		
 //Fifth Title	
 if ( isset( $instance[ 'title5' ] ) )
 $title5= $instance[ 'title5' ];
 else
-$title5 = __( 'Default Title5', 'extraf_widget_domain' );
+$title5 = __( 'Default Title5', 'haveago_widget_domain' );
 $min_range5= $instance['min_range5'];
 $max_range5= $instance['max_range5'];	
 	
@@ -410,7 +409,7 @@ $max_range5= $instance['max_range5'];
 if ( isset( $instance[ 'title6' ] ) )
 $title6= $instance[ 'title6' ];
 else
-$title6 = __( 'Default Title6', 'extraf_widget_domain' );
+$title6 = __( 'Default Title6', 'haveago_widget_domain' );
 $min_range6= $instance['min_range6'];
 $max_range6= $instance['max_range6'];
 	
@@ -908,5 +907,3 @@ echo '</ul>';
 	
 }
 /*New Commit*/
-
-
